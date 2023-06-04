@@ -60,8 +60,8 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{categoryId}")
-    public ResponseEntity<?> delete(@PathVariable Long category) {
-        repository.deleteById(category);
+    public ResponseEntity<?> delete(@PathVariable Long categoryId) {
+        repository.deleteById(categoryId);
         return ResponseEntity.noContent().build();
     }
 
