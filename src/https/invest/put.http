@@ -1,0 +1,9 @@
+PUT http://localhost/invest/{id} HTTP/1.1
+Content-Type: application/json
+
+{
+    "goal": "1000",
+    "percentage": "25",
+    "value": 21,
+    "date": "2019-01-21T00:48:03Z"
+}

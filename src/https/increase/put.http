@@ -1,0 +1,8 @@
+PUT http://localhost/increase/{id} HTTP/1.1
+Content-Type: application/json
+
+{
+    "description": "salario",
+    "value": 12,
+    "date": "2019-01-21T00:48:03Z"
+}
