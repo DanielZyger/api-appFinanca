@@ -3,15 +3,21 @@ package upf.br.appFinancas.domain.model;
 import java.time.Instant;
 import java.util.Date;
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name = "tb_increase")
 public class Increase extends Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
     private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     
     @Column(name = "date")
     private Date date;

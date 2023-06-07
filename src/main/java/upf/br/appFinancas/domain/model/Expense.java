@@ -8,8 +8,16 @@ import jakarta.persistence.*;
 @Table(name = "tb_expense")
 public class Expense extends Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     
     @Column(name = "date")
     private Date date;
