@@ -1,10 +1,23 @@
 package upf.br.appFinancas.domain.model;
 
 import java.math.BigDecimal;
+
 import jakarta.persistence.*;
 
 @MappedSuperclass
 public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Column(name = "description")
     private String description;
 
@@ -25,8 +38,6 @@ public class Account {
     
     public void setDescription(String description) {
         this.description = description;
-
-    
     }
 }
     
