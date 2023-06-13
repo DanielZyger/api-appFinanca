@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import upf.br.appFinancas.domain.model.Increase;
 import upf.br.appFinancas.domain.repositories.IncreaseRepository;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/increase")
 public class IncreaseController {
     
@@ -50,7 +52,7 @@ public class IncreaseController {
         return repository.save(increase);
     }
 
-    @PutMapping("/{increase_countId}")
+    @PutMapping("/{increaseId}")
     public ResponseEntity<?> update(@PathVariable Long increaseId, @RequestBody Increase increase) {
         Optional<Increase> increaseOptional = repository.findById(increaseId);
 
@@ -65,9 +67,9 @@ public class IncreaseController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{increase_countId}")
-    public ResponseEntity<?> delete(@PathVariable Long increase) {
-        repository.deleteById(increase);
+    @DeleteMapping("/{increaseId}")
+    public ResponseEntity<?> delete(@PathVariable Long increaseId) {
+        repository.deleteById(increaseId);
         return ResponseEntity.noContent().build();
     }
 }

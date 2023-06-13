@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import upf.br.appFinancas.domain.model.Expense;
 import upf.br.appFinancas.domain.repositories.ExpenseRepository;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/expense")
 public class ExpenseController {
     
@@ -50,7 +52,7 @@ public class ExpenseController {
         return repository.save(expense);
     }
 
-    @PutMapping("/{expense_countId}")
+    @PutMapping("/{expenseId}")
     public ResponseEntity<?> update(@PathVariable Long expenseId, @RequestBody Expense expense) {
         Optional<Expense> expenseOptional = repository.findById(expenseId);
 
@@ -65,9 +67,9 @@ public class ExpenseController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{expense_countId}")
-    public ResponseEntity<?> delete(@PathVariable Long expense) {
-        repository.deleteById(expense);
+    @DeleteMapping("/{expenseId}")
+    public ResponseEntity<?> delete(@PathVariable Long expenseId) {
+        repository.deleteById(expenseId);
         return ResponseEntity.noContent().build();
     }
 }
