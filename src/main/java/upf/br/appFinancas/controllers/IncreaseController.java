@@ -52,7 +52,7 @@ public class IncreaseController {
         return repository.save(increase);
     }
 
-    @PutMapping("/{increase_countId}")
+    @PutMapping("/{increaseId}")
     public ResponseEntity<?> update(@PathVariable Long increaseId, @RequestBody Increase increase) {
         Optional<Increase> increaseOptional = repository.findById(increaseId);
 
@@ -67,9 +67,9 @@ public class IncreaseController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{increase_countId}")
-    public ResponseEntity<?> delete(@PathVariable Long increase) {
-        repository.deleteById(increase);
+    @DeleteMapping("/{increaseId}")
+    public ResponseEntity<?> delete(@PathVariable Long increaseId) {
+        repository.deleteById(increaseId);
         return ResponseEntity.noContent().build();
     }
 }

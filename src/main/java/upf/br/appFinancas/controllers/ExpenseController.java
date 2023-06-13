@@ -52,7 +52,7 @@ public class ExpenseController {
         return repository.save(expense);
     }
 
-    @PutMapping("/{expense_countId}")
+    @PutMapping("/{expenseId}")
     public ResponseEntity<?> update(@PathVariable Long expenseId, @RequestBody Expense expense) {
         Optional<Expense> expenseOptional = repository.findById(expenseId);
 
@@ -67,9 +67,9 @@ public class ExpenseController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{expense_countId}")
-    public ResponseEntity<?> delete(@PathVariable Long expense) {
-        repository.deleteById(expense);
+    @DeleteMapping("/{expenseId}")
+    public ResponseEntity<?> delete(@PathVariable Long expenseId) {
+        repository.deleteById(expenseId);
         return ResponseEntity.noContent().build();
     }
 }
