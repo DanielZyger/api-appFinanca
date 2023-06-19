@@ -18,6 +18,16 @@ public class Increase extends Account {
         this.date = date;
     }
 
+    private Long category_id;
+
+    public Long getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(Long category_id) {
+        this.category_id = category_id;
+    }
+
     @Embedded
     private Audit audit = new Audit();
 
